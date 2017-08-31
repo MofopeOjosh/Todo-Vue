@@ -1,0 +1,35 @@
+body{
+	font-family: Helvetica;
+	text-align: center;
+}
+#app{
+	margin-top: 50px;
+}
+#app h1{
+	color: #add8e6;
+}
+#app input{
+	width: 40%;
+	margin: 20px;
+	padding: 10px;
+}
+#app div{
+	color: #ff0000;
+	font-size: 18px;
+	width: 30%;
+	margin: auto;
+	display: block;
+}
+#app div p, #app div i{
+	color: #0c0c0c;
+	text-align: left;
+}
+#app div button{
+	border: 1px solid #cccccc;
+	padding: 2px;
+	background: transparent;
+	float:right;
+}
+#app div button i{
+	color: #ff0000;
+}

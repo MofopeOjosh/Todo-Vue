@@ -1,0 +1,51 @@
+<html>
+  <head>
+  <title>Vue Todo</title>
+  <link rel="stylesheet" href="vue.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ title }}</h1>
+      <input v-model="newItem" type="text" v-on:keyup.enter="addItem(newItem)" placeholder="Add New Todo">
+      <div v-if="countTodo">
+          <p v-for="item in todoItems">{{item.index}}. {{item.name}}
+          <button v-on:click="deleteItem(item.index)"><i class="fa fa-trash-o"></i></button>
+          </p>
+      </div>
+      <div v-else>You have no items yet.</div>
+    </div>
+
+    <script src="vuetest/js/vue.js"></script>
+    <!-- <script src="https://unpkg.com/vue"></script> -->
+    <script>
+      let app = new Vue({
+        el: "#app",
+        data: {
+          title: "A Todo Application",
+          countTodo: 0,
+          todoItems: [],
+          newItem: ""
+        },
+        methods: {
+          addItem: function(newItem){
+            if (newItem != "" || newItem != " "){
+              newItem = newItem.toLowerCase();
+              newItem = newItem.charAt(0).toUpperCase() + newItem.slice(1)
+              this.countTodo ++
+              this.todoItems.push(
+                {index: this.countTodo , name: newItem})
+            }
+          },
+          deleteItem: function(itemIndex){
+              this.todoItems.pop({index: itemIndex})
+              this.countTodo -- 
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
+       
+    
