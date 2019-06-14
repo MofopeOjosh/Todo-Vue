@@ -11,7 +11,7 @@
       <input v-model="newItem" type="text" v-on:keyup.enter="addItem(newItem)" placeholder="Add New Todo">
       <div v-if="countTodo">
           <p v-for="(item, index) in todoItems" :key="index">{{index+1}}. {{item.name}}
-          <button v-on:click="deleteItem(item.index)"><i class="fa fa-trash-o"></i></button>
+          <button v-on:click="deleteItem(index)"><i class="fa fa-trash-o"></i></button>
           </p>
       </div>
       <div v-else>You have no items yet.</div>
