@@ -10,7 +10,7 @@
       <h1>{{ title }}</h1>
       <input v-model="newItem" type="text" v-on:keyup.enter="addItem(newItem)" placeholder="Add New Todo">
       <div v-if="countTodo">
-          <p v-for="item in todoItems">{{item.index}}. {{item.name}}
+          <p v-for="(item, index) in todoItems" :key="index">{{index+1}}. {{item.name}}
           <button v-on:click="deleteItem(item.index)"><i class="fa fa-trash-o"></i></button>
           </p>
       </div>
@@ -34,12 +34,13 @@
               newItem = newItem.charAt(0).toUpperCase() + newItem.slice(1)
               this.countTodo ++
               this.todoItems.push(
-                {index: this.countTodo , name: newItem})
+                {name: newItem})
               this.newItem = ""
             }
           },
           deleteItem: function(itemIndex){
-              this.todoItems.splice(itemIndex-1, 1)
+              console.log(itemIndex)
+              this.todoItems.splice(itemIndex, 1)
               this.countTodo -- 
           }
         }
